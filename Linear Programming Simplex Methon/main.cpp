@@ -70,7 +70,7 @@ uword findPivotRow( mat in_mat, uword piv_col )
 		float temp = in_mat.at( i, in_mat.n_cols-1 ) / in_mat.at( i, piv_col );
 			
 		//Store the lowest value and index.
-		if( temp <= min_value )
+		if( temp <= min_value && temp >= 0 )
 		{
 			min_value = temp;
 			row_index = i;
@@ -152,16 +152,16 @@ int main()
 	//	<< 1 << 5 << 1 << 0 << 1 << 8 << endr
 	//	<< -8 << -10 << -7 << 0 << 0 << 0 << endr;
 	
-	A << 2 << 1 << 1 << 1 << 0 << 0 << 14 << endr
-	  << 4 << 2 << 3 << 0 << 1 << 0 << 28 << endr
-	  << 2 << 5 << 5 << 0 << 0 << 1 << 30 << endr
-	  << -1 << -2 << 1 << 0 << 0 << 0 << 0 << endr;
+	//A << 2 << 1 << 1 << 1 << 0 << 0 << 14 << endr
+	//  << 4 << 2 << 3 << 0 << 1 << 0 << 28 << endr
+	//  << 2 << 5 << 5 << 0 << 0 << 1 << 30 << endr
+	//  << -1 << -2 << 1 << 0 << 0 << 0 << 0 << endr;
 
 
-	//A << 1 << 1 << 3 << 1 << 0 << 0 << 30 << endr
-	//	<< 2 << 2 << 5 << 0 << 1 << 0 << 24 << endr
-	//	<< 4 << 1 << 2 << 0 << 0 << 1 << 36 << endr
-	//	<< -3 << -1 << -2 << 0 << 0 << 0 << 0 << endr;
+	A << 1 << 1 << 3 << 1 << 0 << 0 << 30 << endr
+		<< 2 << 2 << 5 << 0 << 1 << 0 << 24 << endr
+		<< 4 << 1 << 2 << 0 << 0 << 1 << 36 << endr
+		<< -3 << -1 << -2 << 0 << 0 << 0 << 0 << endr;
 
 	f << A;
 	uword pivot_col = 1.1;
